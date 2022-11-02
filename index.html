@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reconocimiento de Texto</title>
+    <script src='js/tesseract.js'></script>
+</head>
+<body style="margin: 3rem;">
+  <img alt="jucaMartinez" width="250" height="250" id="img1" src="imgs\images2.jfif?w=600&ssl=1"/>
+  <p id="p1">El texto en la imagen es: </p>
+  <script>
+      var imagenReconocer = document.getElementById("img1");
+      Tesseract.recognize(imagenReconocer.src, {lang: 'spa'})
+          .then(function(result){
+            document.getElementById("p1").innerText += result.text;
+          });     
+  </script>
+</body>
+</html>
